@@ -17,7 +17,7 @@ function Home() {
   };
 
   useEffect(() => {
-    searchMovies('Spiderman')
+    searchMovies('harry potter') //need to change this to general movies
   }, []);
 
   return (<>
