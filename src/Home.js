@@ -1,3 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { MovieCard } from './components/MovieCard';
-import { Row, Col, InputGroup, FormControl, Container } from 'react-bootstrap';
+
+import React from 'react'
+
+function Home() {
+  return (
+    <div>Home</div>
+  )
+}
+
+export default Home
