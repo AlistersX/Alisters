@@ -1,3 +1,4 @@
+//home page - will render a search bar + list of movies using MovieCard.js
 import React, { useState, useEffect } from 'react';
 import MovieCard from './components/MovieCard';
 import FavoriteMovies from './FavoriteMovies';
@@ -9,48 +10,46 @@ function Home() {
   const [search, setSearch] = useState('');
 
   const searchMovies = async (title) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
+    const response = await fetch(`${API_URL}&s=${title}`)
+    const data = await response.json()
     console.log(data.Search)
-    setMovies(data.Search);
-  }
+    setMovies(data.Search)
+  };
 
   useEffect(() => {
     searchMovies('Spiderman')
-  }, [])
+  }, []);
 
   return (<>
-  <div className='home'>
-    <h1>Movie List!</h1>
-
-    <div className='search'>
-      <input 
-        placeholder='Search for movies'
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <img
-        // src={SearchIcon}
-        alt='search' 
-        onClick={() => searchMovies(search)}
-      />
-    </div>
-
-    {
-      // if no movies length is greater than 0, we render each movie card, if it is empty we say no movies found
-      movies?.length > 0 
-        ? (
+    <div className='home'>
+      <h1>Movie List!</h1>
+      <div className='search'>
+        <input 
+          placeholder='Search for movies'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <img
+          // src={SearchIcon}
+          alt='search' 
+          onClick={() => searchMovies(search)}
+        />
+      </div>
+      {
+        // if no movies length is greater than 0, we render each movie card, if it is empty we say no movies found
+        movies?.length > 0 ? 
+          (
           <div className='container'>
             {movies.map((movie) => (
               <MovieCard movie={movie}/>
             ))}
           </div>
-        ) : (
+          ) : (
           <div className='empty'>
             <h2>No Movies Found</h2>
           </div>
       )}
-  </div>
+    </div>
   </>)
 }
 
