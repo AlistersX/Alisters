@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+
 
 function Navigation() {
   return (
-    <div>Navigation</div>
-  )
+    <Navbar sticky='top' bg='dark' variant='dark' className="mb-4">
+      <Container>
+        <Navbar.Brand>
+          Alisters
+        </Navbar.Brand>
+        <Nav className='me-auto'>
+          <Nav.Link as={NavLink} to="/">All Movies</Nav.Link>
+          <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Navigation
+export { Navigation };
