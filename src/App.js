@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/favorites', element: <FavoriteMovies /> },
-      { path: ':name', element: <MovieDetails /> },
+      { path: ':Title', element: <MovieDetails /> },
     ],
   },
 ]);
