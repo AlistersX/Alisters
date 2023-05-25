@@ -1,6 +1,6 @@
 //home page - will render a search bar + list of movies using MovieCard.js
 import React, { useState, useEffect } from 'react';
-import MovieCard from './components/MovieCard';
+import MovieCard from '../components/MovieCard';
 import FavoriteMovies from './FavoriteMovies';
 
 const API_URL = 'http://www.omdbapi.com?apikey=b91b1458';
@@ -53,4 +53,4 @@ function Home() {
   </>)
 }
 
-export default Home;
+export {Home};
