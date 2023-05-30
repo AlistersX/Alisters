@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 import FavoriteMovies from './FavoriteMovies';
+import "../App.css"
 
 const API_URL = 'http://www.omdbapi.com?apikey=b91b1458';
 
