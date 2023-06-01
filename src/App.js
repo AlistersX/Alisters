@@ -1,6 +1,4 @@
 import React from 'react';
-import './App.css';
-//import { logo }from './logo.svg';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from '../src/routes/Home';
 import { MovieDetails } from './routes/MovieDetails';
