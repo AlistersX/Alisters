@@ -15,24 +15,29 @@ function Home() {
   };
 
   useEffect(() => {
-    searchMovies('harry potter'); // Change this to search for general movies
+    searchMovies(''); // Change this to search for general movies
   }, []);
 
   return (
     <div className="home">
       <h1>Directory</h1>
-      <div className="search">
+
+      <div class="input-group input-group-sm mb-3">
         <input
+          class='form-control'
           placeholder="Search for movies"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <img
-          // src={SearchIcon}
-          alt="search"
-          onClick={() => searchMovies(search)}
-        />
+        <div class='input-group-append'>
+          <button 
+            class='btn btn-outline-secondary' 
+            type='button' 
+            onClick={() => searchMovies(search)}> Search
+          </button>
+        </div>
       </div>
+
       <div className="container">
         <Row xs={1} sm={2} md={3} lg={4} xl={4} className="my-4">
           {movies?.length > 0 ? (
