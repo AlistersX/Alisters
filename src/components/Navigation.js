@@ -13,8 +13,8 @@ function Navigation() {
           Alisters
         </Navbar.Brand>
         <Nav className='me-auto'>
-          <Nav.Link as={NavLink} to="/">All Movies</Nav.Link>
-          <Nav.Link as={NavLink} to="/favorites">Favorites</Nav.Link>
+          <Nav.Link as={NavLink} to="/">Search Movies</Nav.Link>
+          <Nav.Link as={NavLink} to="/favorites">Watchlist</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

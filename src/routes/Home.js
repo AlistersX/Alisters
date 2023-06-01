@@ -7,16 +7,28 @@ const API_URL = 'http://www.omdbapi.com?apikey=b91b1458';
 function Home() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState('');
+  const [message, setMessage] = useState('');
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-    setMovies(data.Search);
-  };
+
+    if (data.Response === 'True') {
+      setMessage('') 
+      setMovies(data.Search);
+    } else {
+      setMessage('No movies found') 
+      setMovies([])
+    };
+    setSearchPerformed(true);
+  }
 
   useEffect(() => {
-    searchMovies(''); // Change this to search for general movies
-  }, []);
+    if (setSearchPerformed){
+      searchMovies(search);
+    }
+  }, [search]);
 
   return (
     <div className="home">
@@ -39,18 +51,13 @@ function Home() {
       </div>
 
       <div className="container">
+      {setSearchPerformed && search !== '' && message && <h2>{message}</h2>}
         <Row xs={1} sm={2} md={3} lg={4} xl={4} className="my-4">
-          {movies?.length > 0 ? (
-            movies.map((movie) => (
-              <Col key={movie.imdbID}>
-                <MovieCard movie={movie} />
-              </Col>
-            ))
-          ) : (
-            <div className="empty">
-              <h2>No Movies Found</h2>
-            </div>
-          )}
+          {movies && movies.map((movie) => (
+          <Col key={movie.imdbID}>
+            <MovieCard movie={movie} />
+          </Col>
+          ))}
         </Row>
       </div>
     </div>
