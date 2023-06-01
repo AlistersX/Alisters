@@ -22,12 +22,18 @@ function MovieDetails() {
     return <div>Loading...</div>;
   }
 
+  console.log(movie)
+
   return (
     <>
       <div>
+        <h3>{movie.Type.toUpperCase()}</h3>
         <h1>{movie.Title}</h1>
         <h3>{movie.Year}</h3>
-         <img src={movie.Poster !== 'N/A' ? movie.Poster : 'http://via.placeholder.com/400'} alt={movie.Title}/>
+        <h3>Cast: {movie.Actors}</h3>
+        <h3>Plot Summary: {movie.Plot}</h3>
+        <h3>Runtime: {movie.Runtime}</h3>
+        <img src={movie.Poster !== 'N/A' ? movie.Poster : 'http://via.placeholder.com/400'} alt={movie.Title}/>
       </div>
     </>
   );
