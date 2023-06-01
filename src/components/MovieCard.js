@@ -10,9 +10,7 @@ function MovieCard({ movie }) {
         <img src={movie.Poster !== 'N/A' ? movie.Poster : 'http://via.placeholder.com/400'} alt={movie.Title}/>
       </div>
       <div>
-        <h3>{movie.Title}</h3>
-        <Link to={`/${movie.Title}`}>{movie.Title}</Link>
-
+        <h3><Link to={`/${movie.Title}`}>{movie.Title}</Link></h3>
       </div>
     </div>
   </>)
