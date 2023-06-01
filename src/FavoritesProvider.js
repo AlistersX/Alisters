@@ -10,9 +10,9 @@ function FavoritesProvider({ children }) {
     setFavorites([...favorites, favorite]);
   }
 
-  function removeFavorite(name) {
-    // copy the current favorites array filtering out the pokemon with the given name
-    setFavorites(favorites.filter((favorite) => name !== favorite));
+  function removeFavorite(movie) {
+    // copy the current favorites array filtering out the movie with the given name
+    setFavorites(favorites.filter((favorite) => movie.Title !== favorite.Title));
   }
 
   return (
