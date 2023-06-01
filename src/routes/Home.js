@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import MovieCard from '../components/MovieCard';
-import { Row, Col } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const API_URL = 'http://www.omdbapi.com?apikey=b91b1458';
 
@@ -19,40 +19,51 @@ function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="home container">
       <h1>Directory</h1>
 
-      <div class="input-group input-group-sm mb-3">
+      <div className="input-group mb-3">
         <input
-          class='form-control'
+          className="form-control"
           placeholder="Search for movies"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <div class='input-group-append'>
-          <button 
-            class='btn btn-outline-secondary' 
-            type='button' 
-            onClick={() => searchMovies(search)}> Search
+        <div className="input-group-append">
+          <button
+            className="btn btn-outline-secondary"
+            type="button"
+            onClick={() => searchMovies(search)}
+          >
+            Search
           </button>
         </div>
       </div>
 
-      <div className="container">
-        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="my-4">
-          {movies?.length > 0 ? (
-            movies.map((movie) => (
-              <Col key={movie.imdbID}>
-                <MovieCard movie={movie} />
-              </Col>
-            ))
-          ) : (
-            <div className="empty">
-              <h2>No Movies Found</h2>
-            </div>
-          )}
-        </Row>
-      </div>
+      <Row className="my-4">
+        {movies?.length > 0 ? (
+          movies.map((movie) => (
+            <Col key={movie.imdbID} xs={12} sm={6} md={4} lg={3}>
+              <Card className="movie-card border-0 text-center"> {/* Add 'border-0' class to remove the border and 'text-center' class to center-align the text */}
+                <Card.Img
+                  variant="top"
+                  src={movie.Poster !== 'N/A' ? movie.Poster : 'http://via.placeholder.com/400'}
+                  alt={movie.Title}
+                />
+                <Card.Body>
+                  <Card.Title>
+                    <Link to={`/${movie.Title}`}>{movie.Title}</Link>
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <div className="empty">
+            <h2>No Movies Found</h2>
+          </div>
+        )}
+      </Row>
     </div>
   );
 }
