@@ -7,16 +7,28 @@ const API_URL = 'http://www.omdbapi.com?apikey=b91b1458';
 function Home() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState('');
+  const [message, setMessage] = useState('');
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-    setMovies(data.Search);
-  };
+
+    if (data.Response === 'True') {
+      setMessage('') 
+      setMovies(data.Search);
+    } else {
+      setMessage('No movies found') 
+      setMovies([])
+    };
+    setSearchPerformed(true);
+  }
 
   useEffect(() => {
-    searchMovies(''); // Change this to search for general movies
-  }, []);
+    if (setSearchPerformed){
+      searchMovies(search);
+    }
+  }, [search]);
 
   return (
     <div className="home container">
@@ -39,8 +51,8 @@ function Home() {
           </button>
         </div>
       </div>
-
       <Row className="my-4">
+      {setSearchPerformed && search !== '' && message && <h2>{message}</h2>}
         {movies?.length > 0 ? (
           movies.map((movie) => (
             <Col key={movie.imdbID} xs={12} sm={6} md={4} lg={3}>
