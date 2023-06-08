@@ -5,18 +5,6 @@ import { MovieDetails } from './routes/MovieDetails';
 import { Layout } from './routes/Layout';
 import { FavoritesProvider } from './FavoritesProvider';
 import { FavoriteMovies } from './routes/FavoriteMovies'
-//import MovieCard from './components/MovieCard';
-
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Home />
-      </header>
-    </div>
-  );
-}
-*/
 
 const router = createBrowserRouter([
   {

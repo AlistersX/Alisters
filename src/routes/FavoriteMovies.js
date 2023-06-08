@@ -11,13 +11,11 @@ function FavoriteMovies() {
         {favorites?.length > 0 ? (favorites.map((movie) => (
           <div>
             <h3><Link to={`/${movie.Title}`}>{movie.Title}</Link></h3>
-            <button onClick={() => removeFavorite(movie)}></button>
+            <button onClick={() => removeFavorite(movie)}>Remove Favorite</button>
           </div>
           ))) : (
             <h1>no favorites</h1>
           )}
-      </div>
-      <div>
       </div>
     </>
   )

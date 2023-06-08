@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 
-
 function Navigation() {
   return (
     <Navbar sticky='top' bg='dark' variant='dark' className="mb-4">

@@ -72,7 +72,6 @@ function Home() {
           ))
         ) : (
           <div className="empty">
-            <h2>No Movies Found</h2>
           </div>
         )}
       </Row>
