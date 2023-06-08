@@ -53,8 +53,7 @@ function Home() {
       </div>
       <Row className="my-4">
       {setSearchPerformed && search !== '' && message && <h2>{message}</h2>}
-        {movies?.length > 0 ? (
-          movies.map((movie) => (
+          {movies.map((movie) => (
             <Col key={movie.imdbID} xs={12} sm={6} md={4} lg={3}>
               <Card className="movie-card border-0 text-center"> {/* Add 'border-0' class to remove the border and 'text-center' class to center-align the text */}
                 <Card.Img
@@ -69,11 +68,7 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
-          ))
-        ) : (
-          <div className="empty">
-          </div>
-        )}
+          ))}
       </Row>
     </div>
   );
