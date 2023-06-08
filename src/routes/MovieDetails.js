@@ -55,6 +55,7 @@ function MovieDetails() {
             const outcome = favoriteChecker(movie);
             if (outcome === undefined) {
               addFavorite(movie);
+              alert("Movie added")
             } else {
               alert("already added");
             }
@@ -68,6 +69,7 @@ function MovieDetails() {
               const outcome = favoriteChecker(movie);
               if (outcome !== undefined) {
                 removeFavorite(movie);
+                alert("Movie removed")
               } else {
                 alert("Movie is not in favorites");
               }
