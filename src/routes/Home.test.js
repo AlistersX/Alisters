@@ -1,15 +1,21 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import { Home } from './Home';
 import React from 'react';
+import { ThemeContext } from '../ThemeContent';
 
 describe('home page', () => {
 
     test('home page should render', () => {
-        render(<Home />)
+        render(
+        <ThemeContext.Provider value={{dark: ()=>{}}}>
+            <Home />
+            </ThemeContext.Provider>)
     });
 
     test('homepage should render text', () => {
-        render(<Home />)
+        render(<ThemeContext.Provider value={{dark: ()=>{}}}>
+            <Home />
+            </ThemeContext.Provider>)
 
         expect(screen.getByText('Directory')).toBeInTheDocument()
     });

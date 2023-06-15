@@ -1,17 +1,28 @@
 
+.custom-navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }  
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+}
+  
 .movie-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     overflow: hidden;
-    width: 240px; /* Adjust the width as needed */
-  }
+    width: 260px;
+    height: 100%;
+}
   
   .movie-card-img {
     width: 100%;
-    height: 320px; /* Adjust the height as needed */
-    object-fit: cover;
+    height: 360px; 
+    object-fit: cover;   
   }
   
   .movie-card-body {
@@ -31,7 +42,27 @@
     display: flex;
     justify-content: center;
     margin-top: auto;
-    padding: 0.5rem;
+    padding: 0.5rem; 
+    width: 260px;
+  }
+
+  /*Toggle Button*/
+  .form-range {
+    width: 30px;
+    height: 100px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    background-color: gray;
   }
   
+  /* Darkmode */
+  .light-theme {
+    background-color: white;
+    color: black;
+  }
   
+  .dark-theme {
+    background-color: black;
+    color: white;
+  }

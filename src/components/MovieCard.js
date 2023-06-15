@@ -1,22 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 function MovieCard({ movie }) {
   return (
-    <div className="movie-card">
-      <img
+    <Card className="movie-card border-0 text-center">
+      <Card.Img
         className="movie-card-img"
+        variant="top"
         src={movie.Poster !== 'N/A' ? movie.Poster : 'http://via.placeholder.com/400'}
         alt={movie.Title}
+        style={{ height: '400px', objectFit: 'cover' }}
       />
-      <div className="movie-card-body">
-        <h5 className="movie-card-title">
-          <Link to={`/${movie.Title}`} className="movie-card-link">
+      <Card.Body>
+        <Card.Title>
+          <Link to={`/${movie.Title}`} style={{ textDecoration: 'none', color: 'black' }}>
             {movie.Title}
           </Link>
-        </h5>
-      </div>
-    </div>
+        </Card.Title>
+      </Card.Body>
+    </Card>
   );
 }
 
