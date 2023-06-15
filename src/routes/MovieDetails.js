@@ -2,10 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { FavoritesContext } from "../FavoritesProvider";
 import { Button } from "react-bootstrap";
+
 function MovieDetails() {
  const { addFavorite, favorites, removeFavorite } = useContext(FavoritesContext);
  const [movie, setMovie] = useState(null);
  const params = useParams();
+
  useEffect(() => {
   const fetchMovie = async () => {
    try {
@@ -18,14 +20,17 @@ function MovieDetails() {
     console.log(error);
    }
   };
+
   fetchMovie();
  }, [params.Title]);
  if (movie === null) {
   return <div>Loading...</div>;
  }
+
  const favoriteChecker = (movie) => {
   return favorites.find((mov) => mov.Title === movie.Title);
  };
+
  return (
   <div className="container">
    <div className="movie-details">
@@ -83,4 +88,5 @@ function MovieDetails() {
   </div>
  );
 }
+
 export { MovieDetails }; 
