@@ -21,7 +21,7 @@ function FavoriteMovies() {
                 className="btn btn-danger btn-remove-favorite w-100"
                 onClick={() => removeFavorite(movie)}
               >
-                Remove Favorite
+                Remove Movie
               </button>
             </div>
           </Card>

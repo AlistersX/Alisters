@@ -57,11 +57,11 @@ function MovieDetails() {
               addFavorite(movie);
               alert("Movie added")
             } else {
-              alert("already added");
+              alert("Already Added");
             }
           }}
         >
-          add favorite
+          Add Movie
         </button>
         <div>
           <button
@@ -71,11 +71,11 @@ function MovieDetails() {
                 removeFavorite(movie);
                 alert("Movie removed")
               } else {
-                alert("Movie is not in favorites");
+                alert("Movie is not in Watchlist");
               }
             }}
           >
-            remove favorite
+            Remove Movie
           </button>
         </div>
       </div>
