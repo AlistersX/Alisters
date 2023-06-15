@@ -14,7 +14,7 @@ function Navigation() {
           <Nav.Link as={NavLink} to="/" className="me-3">
             Search Movies
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/favorites">
+          <Nav.Link as={NavLink} to="/watchList">
             Watchlist
           </Nav.Link>
         </Nav>
